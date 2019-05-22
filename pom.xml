@@ -29,12 +29,12 @@
 <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind 
 
 *** This jackson library should not be updated because it is not listed in the includeList tag. *** 
-*** It should still be version 2.9.2 *** 
+*** It should still be version 2.9.8 *** 
 -->
 <dependency>
     <groupId>com.fasterxml.jackson.core</groupId>
     <artifactId>jackson-databind</artifactId>
-    <version>2.9.2</version>
+    <version>2.9.8</version>
 </dependency>
   </dependencies>
   
