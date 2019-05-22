@@ -1,0 +1,53 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.gtxtreme21</groupId>
+  <artifactId>versions-maven-plugin-example</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <!--<packaging>jar</packaging>-->
+  <name>versions-maven-plugin-example</name>
+  <description>Example for using the "versions-maven-plugin" maven plugin to dynamically update certain dependencies in a project.</description>
+  
+  <dependencies>
+  <!-- https://mvnrepository.com/artifact/com.github.gtxtreme21/passfailreport-maven-plugin 
+  *** This plugin will automatically update to the latest version via the versions-maven-plugin. Started with version: 1.0 ***
+  -->
+	<dependency>
+	    <groupId>com.github.gtxtreme21</groupId>
+	    <artifactId>passfailreport-maven-plugin</artifactId>
+	    <version>1.0</version>
+	</dependency>
+<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api 
+	*** This plugin will automatically update to the latest version via the versions-maven-plugin. Started with version: 5.0.3 ***
+  -->
+<dependency>
+    <groupId>org.junit.jupiter</groupId>
+    <artifactId>junit-jupiter-api</artifactId>
+    <version>5.0.3</version>
+	<scope>test</scope>
+</dependency>
+	
+<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind 
+
+*** This jackson library should not be updated because it is not listed in the includeList tag. *** 
+*** It should still be version 2.9.2 *** 
+-->
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-databind</artifactId>
+    <version>2.9.2</version>
+</dependency>
+  </dependencies>
+  
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>versions-maven-plugin</artifactId>
+        <version>2.7</version>
+        <configuration>
+		<includesList>org.junit.jupiter:junit-jupiter-api,com.github.gtxtreme21:passfailreport-maven-plugin</includesList>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>  
+</project>
